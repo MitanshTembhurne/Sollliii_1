@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#ffe6f0">
+<title>Vanshi!! A little note 💗</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Caveat:wght@500;600;700&family=Fredoka:wght@400;500;600;700&display=swap');
+:root{--pink:#ffb9d0;--hot:#ed6e9b;--dark:#8f355d;--cream:#fffaf2;--ink:#573344;--lilac:#e7d8ff;--yellow:#fff0a8}
+*{box-sizing:border-box}
+body{margin:0;background:#ffe9f1;color:var(--ink);font-family:'Baloo 2',system-ui,sans-serif;overflow-x:hidden}
+button,textarea{font:inherit}
+button{cursor:pointer}
+.paper{position:relative;min-height:100vh;overflow:hidden;background:
+ radial-gradient(circle at 10% 10%,#fff7bc 0 4px,transparent 5px),
+ radial-gradient(circle at 90% 20%,#ffc5d8 0 5px,transparent 6px),
+ linear-gradient(135deg,#fff5f8,#ffe1ec 50%,#fff0ce)}
+.doodles{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:0}
+.doodle{position:absolute;font-size:clamp(22px,5vw,40px);opacity:.72;animation:wobble 4s ease-in-out infinite}
+@keyframes wobble{0%,100%{transform:rotate(-8deg) translateY(0)}50%{transform:rotate(8deg) translateY(-8px)}}
+main{position:relative;z-index:1;width:min(760px,100%);margin:auto;padding:24px 16px 50px}
+.page{display:none;animation:pop .45s ease both}
+.page.active{display:block}
+@keyframes pop{from{opacity:0;transform:translateY(14px) scale(.985)}to{opacity:1;transform:translateY(0) scale(1)}}
+.hero{text-align:center;min-height:84vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px 10px}
+.sticker{display:inline-block;background:var(--yellow);border:2px solid var(--ink);border-radius:14px;padding:5px 14px;transform:rotate(-4deg);box-shadow:4px 4px 0 var(--ink);font-weight:800}
+h1,h2,p{margin-top:0}
+h1{font-family:'Fredoka',sans-serif;font-size:clamp(3rem,12vw,6rem);line-height:.95;letter-spacing:-2px;color:var(--dark);margin:24px 0 15px;text-shadow:3px 3px 0 white}
+.hand{font-family:'Caveat',cursive;font-size:clamp(1.7rem,5vw,2.5rem);line-height:1.1}
+.intro{font-size:1.1rem;max-width:480px;line-height:1.55}
+.sparkle{font-size:2rem;display:inline-block;animation:wobble 2s infinite}
+.btn{border:2px solid var(--ink);border-radius:17px;padding:13px 21px;background:#ff8fb5;color:#4b2637;font-family:'Fredoka',sans-serif;font-size:1.12rem;font-weight:700;box-shadow:4px 5px 0 var(--ink);transition:transform .15s,box-shadow .15s}
+.btn:hover{transform:translate(2px,2px);box-shadow:2px 3px 0 var(--ink)}
+.btn:active{transform:translate(4px,5px);box-shadow:0 0 0 var(--ink)}
+.btn.light{background:#fffdf6}
+.btn.yes{background:#b8f0c9}
+.btn.no{background:#e8d8ff}
+.buttons{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;margin:22px 0}
+.card{background:var(--cream);border:2px solid var(--ink);border-radius:24px;padding:clamp(20px,5vw,34px);box-shadow:7px 7px 0 #f6a4c1;margin:20px 0;position:relative}
+.card:before{content:'✦ ✿ ♡ ✦';position:absolute;top:-15px;left:18px;background:var(--yellow);border:2px solid var(--ink);border-radius:10px;padding:1px 9px;transform:rotate(-3deg);font-size:.9rem}
+h2{font-family:'Fredoka',sans-serif;font-size:clamp(1.7rem,6vw,2.35rem);color:var(--dark);margin:4px 0 14px}
+p{line-height:1.75;font-size:1.03rem;margin-bottom:14px}
+.tape{display:inline-block;background:#ffd9e5;padding:4px 14px;transform:rotate(2deg);font-family:'Caveat',cursive;font-size:1.5rem}
+.letter{background:#fffdf8;border:2px dashed #e889a9;border-radius:18px;padding:20px;margin-top:18px}
+.signature{font-family:'Caveat',cursive;font-size:2rem;color:var(--dark);font-weight:700}
+.note{background:#fff0a8;border:2px solid var(--ink);border-radius:15px;padding:13px;transform:rotate(-1deg)}
+.center{text-align:center}
+.emoji-row{font-size:1.7rem;letter-spacing:4px;margin:15px 0}
+textarea{width:100%;min-height:105px;border:2px dashed #db83a3;border-radius:15px;padding:12px;background:#fffdf8;color:var(--ink);resize:vertical}
+footer{text-align:center;font-size:.88rem;padding:20px;color:#87556a}
+.topline{text-align:center;margin:12px 0 25px}
+.music{position:fixed;z-index:5;right:12px;bottom:12px;border:2px solid var(--ink);background:#fffaf2;border-radius:999px;padding:9px 13px;box-shadow:3px 3px 0 var(--ink);font-weight:700;color:var(--ink)}
+.tiny{font-size:.88rem;color:#87556a}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="paper">
+<div class="doodles" aria-hidden="true" id="doodles"></div>
+<main>
+<section class="page active" id="home">
+  <div class="hero">
+    <div class="sticker">🚨 IMPORTANT CUTIE NOTICE 🚨</div>
+    <div class="emoji-row">🎀 🧸 💗 🦋</div>
+    <h1>VANSHI!!<br>WAITTT 🥹</h1>
+    <p class="hand">okay so… your favourite idiot has something to say 👉👈</p>
+    <p class="intro">I made you a tiny little corner of the internet. It's pink, slightly dramatic, and full of things I should've said yesterday. 💌</p>
+    <div class="sparkle">♡ ✧ ♡</div>
+    <div class="buttons"><button class="btn" onclick="showPage('letterPage')">OPEN YOUR LETTER 💌</button></div>
+    <p class="tiny">psst… no pressure, just read whenever you're ready 🌷</p>
+  </div>
+</section>
+
+<section class="page" id="letterPage">
+  <div class="topline"><span class="tape">a tiny letter for you 💌</span></div>
+  <div class="card">
+    <div class="center"><div class="emoji-row">💗 🌸 🧸 🌷</div><h2>Dear Vanshi,</h2></div>
+    <div class="letter">
+      <p>First of all… I'm genuinely sorry for hurting you yesterday. 🥺💗 You deserved a proper apology from me then, and I'm sorry I didn't give you one.</p>
+      <p>I understand why the situation involving my ex best friend made you worry that I might treat you the same way. I can see how that could make you feel unsure or scared of getting hurt, and I don't want to dismiss your feelings.</p>
+      <p>I've realised for months that what happened with my ex best friend affected me deeply, and I've been trying to get through a really difficult time. But I know that explaining my side doesn't automatically make your worries go away. I should communicate better instead of expecting you to just know what I've been feeling.</p>
+      <p>When everything became chaotic, my mother scolded me and I went offline. That's what happened, but I know it left things unresolved. I still should have apologised and spoken to you properly when I could. I'm sorry for that too. 🫶</p>
+      <p>I am not saying all this to win the argument or make you feel guilty. I'm saying it because I care about how you feel, and I want to take responsibility for my part. I can't demand that you trust me just because I say something sweet on a website 😭 — I need to show you through my actions, patience, honesty, and consistency.</p>
+      <p>When you're ready, I'd like to listen to what hurt you without interrupting or turning it into another argument. If you need time, I'll respect that. You don't have to pretend you're okay just to make me feel better.</p>
+      <p class="hand">Tawhan ji feelings munhinji lae aham aa. 💗</p>
+      <p class="tiny">(A little Sindhi: Your feelings matter to me.)</p>
+      <p>I'm sorry, Vanshi. You deserved to hear that from me yesterday. I hope I can do better, not just say better things. 🌷</p>
+      <p class="signature">— Tanshu 🧸</p>
+    </div>
+    <div class="center buttons">
+      <button class="btn light" onclick="showPage('promisePage')">okay… one more thing ➜</button>
+    </div>
+  </div>
+</section>
+
+<section class="page" id="promisePage">
+  <div class="hero" style="min-height:70vh">
+    <div class="emoji-row">🧸 💌 🌷 🥹</div>
+    <h2 style="font-size:clamp(2.3rem,9vw,4rem)">My tiny promise list</h2>
+    <div class="card" style="text-align:left">
+      <p>♡ <b>Listen first.</b> I'll try to understand your feelings before explaining my side.</p>
+      <p>♡ <b>Communicate better.</b> If I need time or have to go offline, I'll explain when I can instead of leaving you confused.</p>
+      <p>♡ <b>Earn trust through actions.</b> I know trust takes time, and I won't expect one apology to fix everything instantly.</p>
+    </div>
+    <p class="hand">No magic tricks. Just me trying to do better. 💗</p>
+    <div class="buttons"><button class="btn" onclick="showPage('questionPage')">one last question… 👉👈</button></div>
+  </div>
+</section>
+
+<section class="page" id="questionPage">
+  <div class="hero" style="min-height:75vh">
+    <div class="sticker">PLEASE ANSWER HONESTLY 💌</div>
+    <div class="emoji-row">🥹 💗 🥺</div>
+    <h2 style="font-size:clamp(2.4rem,9vw,4rem)">Vanshi…</h2>
+    <p class="hand" style="font-size:2.5rem">Have you forgiven me?</p>
+    <p class="intro">It's okay to be honest. You don't have to say yes before you're ready. 🫶</p>
+    <div class="buttons">
+      <button class="btn yes" onclick="showPage('yesPage')">YES 💗</button>
+      <button class="btn no" onclick="showPage('noPage')">NOT YET 🥺</button>
+    </div>
+    <p class="tiny">Either answer is okay. Your feelings matter. 🌷</p>
+  </div>
+</section>
+
+<section class="page" id="yesPage">
+  <div class="hero">
+    <div class="emoji-row">😭💗🎉🧸🌷</div>
+    <h1 style="font-size:clamp(2.8rem,11vw,5rem)">THANK YOUUU!!</h1>
+    <p class="hand">Vanshi, thank you for giving me forgiveness. 🥹💗</p>
+    <div class="card">
+      <p>That means a lot to me. I don't want to take your kindness for granted, and I know forgiveness doesn't mean I should stop trying. I'll keep working on listening, communicating, and treating your feelings with care.</p>
+      <p>Thank you for reading my little letter all the way through. Sending you the biggest virtual bouquet and a million tiny hearts. 💐💗💗</p>
+      <p class="hand">Shukriya, Vanshi! 🌸</p>
+      <p class="signature">— Tanshu ♡</p>
+    </div>
+    <div class="sparkle">🌷 ✨ 💗 ✨ 🌷</div>
+    <button class="btn light" onclick="showPage('home')">read it again ↺</button>
+  </div>
+</section>
+
+<section class="page" id="noPage">
+  <div class="hero" style="min-height:75vh">
+    <div class="emoji-row">🫂🌷💗</div>
+    <h2 style="font-size:clamp(2.2rem,8vw,3.5rem)">That's okay, Vanshi. 💗</h2>
+    <p class="intro">Thank you for being honest. I'm not going to make you feel bad for not being ready to forgive me.</p>
+    <div class="card" style="width:100%;text-align:left">
+      <h2 style="font-size:1.7rem">If you want to tell me…</h2>
+      <p>What is still hurting you, or what do you wish I understood better? You can write it here if you'd like. There's no obligation to fill this in.</p>
+      <textarea id="feedback" placeholder="Only if you want to share… 💌"></textarea>
+      <p class="tiny">This note stays on this page. It is not automatically sent to Tanshu.</p>
+      <div class="buttons"><button class="btn" onclick="showThanksForFeedback()">I want to share this 💗</button><button class="btn light" onclick="showPage('questionPage')">maybe later</button></div>
+      <p id="feedbackMessage" class="tiny" aria-live="polite"></p>
+    </div>
+    <p class="hand">I'll give you time and listen when you're ready. Tawhan khe waqt deendos. 🌸</p>
+    <p class="tiny">(Sindhi: I'll give you time.)</p>
+  </div>
+</section>
+<footer>Made with care (and probably too many emojis) by Tanshu for Vanshi 💗<br>Made to apologise, not to pressure. ♡</footer>
+</main>
+<button class="music" id="musicBtn" type="button">♫ soft music: off</button>
+</div>
+<script>
+function showPage(id){
+ document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+ const next=document.getElementById(id); next.classList.add('active');
+ window.scrollTo({top:0,behavior:'smooth'});
+}
+function showThanksForFeedback(){
+ const msg=document.getElementById('feedbackMessage');
+ const value=document.getElementById('feedback').value.trim();
+ if(!value){msg.textContent="Only share if you want to. It's okay to leave this blank. 💗";return;}
+ msg.textContent="Thank you for putting your feelings into words. This text hasn't been sent anywhere—if you want Tanshu to read it, you can copy it and send it to him when you're ready. 🫶";
+}
+(function(){
+ const d=document.getElementById('doodles');
+ const symbols=['♡','✿','☆','୨୧','💗','☁','✧','🌷','☺'];
+ for(let i=0;i<24;i++){const e=document.createElement('span');e.className='doodle';e.textContent=symbols[i%symbols.length];e.style.left=(Math.random()*96)+'%';e.style.top=(Math.random()*96)+'%';e.style.animationDelay=(-Math.random()*4)+'s';e.style.fontSize=(18+Math.random()*23)+'px';d.appendChild(e)}
+ // Optional locally generated gentle tones. No audio file or network needed.
+ let ctx=null,playing=false,timer=null,index=0;
+ const btn=document.getElementById('musicBtn'),notes=[261.63,329.63,392,329.63,293.66,349.23,392,349.23];
+ function note(){if(!playing||!ctx)return;const o=ctx.createOscillator(),g=ctx.createGain();o.type='sine';o.frequency.value=notes[index++%notes.length];g.gain.setValueAtTime(.0001,ctx.currentTime);g.gain.exponentialRampToValueAtTime(.035,ctx.currentTime+.08);g.gain.exponentialRampToValueAtTime(.0001,ctx.currentTime+.65);o.connect(g);g.connect(ctx.destination);o.start();o.stop(ctx.currentTime+.68)}
+ btn.addEventListener('click',async()=>{if(!playing){try{const AC=window.AudioContext||window.webkitAudioContext;if(!AC){btn.textContent='♫ music unavailable';return}ctx=ctx||new AC();if(ctx.state==='suspended')await ctx.resume();playing=true;note();timer=setInterval(note,720);btn.textContent='Ⅱ soft music: on'}catch(e){btn.textContent='♫ music unavailable'}}else{playing=false;clearInterval(timer);if(ctx)ctx.suspend();btn.textContent='♫ soft music: off'}});
+})();
+</script>
+</body>
+</html>
